@@ -24,7 +24,7 @@ See `BOXES.md` for software installed list.
 - giuseppemorelli/lamp-stack 1.0.3 (debian jessie 8.6)
 
 ## How to use
-- download https://github.com/gmdotnet/Vagrant-LAMP/archive/master.zip
+- download https://github.com/gmdotnet/vagrant-multi-machine-virtualbox/archive/master.zip
 - unzip on your favorite work folder
 - rename `config/config.yaml.sample` in `config/config.yaml`
 - change settings in `config/config.yaml`
