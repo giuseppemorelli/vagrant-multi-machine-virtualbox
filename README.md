@@ -1,3 +1,8 @@
+[![stable version](https://img.shields.io/badge/stable%20version-1.0.0-green.svg?style=flat-square)](https://github.com/gmdotnet/vagrant-multi-machine-virtualbox/releases/tag/1.0.0)
+[![develop](https://img.shields.io/badge/beta%20version-branch%20develop-oran.svg?style=flat-square)](https://github.com/gmdotnet/vagrant-multi-machine-virtualbox/tree/develop)
+[![license](https://img.shields.io/badge/license-OSL--3-blue.svg?style=flat-square)](https://github.com/gmdotnet/vagrant-multi-machine-virtualbox/blob/master/LICENSE.txt)
+[![gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/GMdotnet/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
+
 # Vagrant Multi Machine Virtualbox
 
 This is a Multi Machine system for vagrant with Virtualbox provider.  
