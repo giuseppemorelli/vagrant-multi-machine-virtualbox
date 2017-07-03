@@ -2,7 +2,7 @@
 ##                                   ##
 ## GMdotnet                          ##
 ## Vagrant Multi Machine Virtualbox  ##
-## Version 0.0.1                     ##
+## Version 1.0.0                     ##
 ##                                   ##
 ## Config file                       ##
 #######################################
@@ -29,8 +29,63 @@ gmdotnet:
           path: "script/backup_database.sh"
       plugin:
         hostsupdater:
-          enable: yes    # enable hostsupdater plugin
-          permanent: yes  # your changes to /etc/hosts will be permanent
+          enable: no    # enable hostsupdater plugin
+          permanent: no  # your changes to /etc/hosts will be permanent
+          aliases: ["alias.gmweb", "alias2.gmweb"]  # alias for same ip in your file hosts, leave blank for no aliases
+      # SHARED FOLDERS
+      share:
+      #    - folder:
+      #        host_folder: /var/www/myproject.com
+      #        vagrant_folder: /var/www/myproject.com
+      #        owner: vagrant
+      #        group: vagrant
+      #    - folder:
+      #        host_folder: /mnt/archive
+      #        vagrant_folder: /mnt/archive
+      #        owner: vagrant
+      #        group: vagrant
+      # RSYNC FOLDERS
+      rsync:
+      #    - folder:
+      #        host_folder: /mnt/extra/rsync
+      #        vagrant_folder: /mnt/extra/rsync
+      #        options:
+      #            - "-a"
+      #            - "-r"
+      #            - "-v"
+      #            - "-z"
+      #            - "--delete"
+      #    - folder:
+      #        host_folder: /mnt/extra/rsync2
+      #        vagrant_folder: /mnt/extra/rsync2
+      #        options:
+      #            - "-a"
+      #            - "-r"
+      #            - "-v"
+      #            - "-z"
+  - host:
+      # enable or not the machine
+      # if you not enable the machine, it will not be created
+      enable: no
+      vagrantbox_name: gmdb
+      hostname: gmdb
+      box:
+        name: giuseppemorelli/lamp-stack
+        version: 1.0.2  # leave empty if you want the latest version
+        check_update: yes
+      private_ip: 192.168.250.11
+      ram: 1024
+      provision:
+        ansible:
+          enable: no
+          playbook_path: "ansible/playbook.yml"
+        script:
+          enable: no
+          path: "script/backup_database.sh"
+      plugin:
+        hostsupdater:
+          enable: no    # enable hostsupdater plugin
+          permanent: no  # your changes to /etc/hosts will be permanent
           aliases: ["alias.gmweb", "alias2.gmweb"]  # alias for same ip in your file hosts, leave blank for no aliases
       # SHARED FOLDERS
       share:
