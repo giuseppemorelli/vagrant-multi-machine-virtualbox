@@ -63,6 +63,14 @@ gmdotnet:
       #            - "-r"
       #            - "-v"
       #            - "-z"
+      # NFS FOLDERS
+      # nfs:
+      #     - folder:
+      #         # nfs path folder
+      #         host_folder: /var/www/myproject
+      #         vagrant_folder: /var/www/project_vagrant
+      #         options:
+      #             - ""
   - host:
       # enable or not the machine
       # if you not enable the machine, it will not be created
@@ -125,4 +133,4 @@ gmdotnet:
       #         host_folder: /var/www/myproject
       #         vagrant_folder: /var/www/project_vagrant
       #         options:
-      #             - "
+      #             - ""
