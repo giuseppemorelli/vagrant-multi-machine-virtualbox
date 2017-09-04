@@ -82,6 +82,18 @@ Vagrant.configure("2") do |config|
                 end
                 ## -*- end rsync folders -*-
 
+                # NFS folders
+                if host['nfs'] != nil
+                    host['nfs'].each do |nfs|
+                      nfsoptions = []
+                      nfs['folder']['options'].each do |options|
+                          nfsoptions.push(options)
+                      end
+                      vmhost.vm.synced_folder nfs['folder']['host_folder'], nfs['folder']['vagrant_folder'], nfs: true, mount_options: nfsoptions
+                    end
+                end
+                ## -*- end nfs folders -*-
+
                 # Virtualbox options
                 vmhost.vm.provider "virtualbox" do |vb|
                     # RAM
