@@ -40,17 +40,21 @@ See `BOXES.md` for software installed list.
 
 ### Config file `config.yaml`
 
-| Field           | Type          | Description                                         | Note |
-| --------------- | ------------- | --------------------------------------------------- | ---- |
-| host            | group field   | Each group of `host` create a machine in virtualbox |      |
-| enable          | boolean       | Enable or not the machine                           | Disabled machine aren't managed by Vagrant file, so if you want to destroy it you have to make this flag with `yes` |
-| vagrantbox_name | string        | Name for vagrant software                           |      |
-| hostname        | string        | Hostname of the machine                             |      |
-| box > name      | string        | Name of the public vagrant box                      | Need to be publish in https://app.vagrantup.com/boxes/search |
-| box > version   | version x.y.z | Vagrant box version                                 |      |      
-| check_update    | boolean       | Check for update of your box                        |      |
-| private_ip      | ipv4          | Internal ipv4 of the machine                        | Don't use same subnet of your computer     |
-| ram             | int           | Amout of ram to allocate                            |      |
+| Field                               | Type          | Description                                             | Note |
+| ----------------------------------- | ------------- | ------------------------------------------------------- | ---- |
+| host                                | group field   | Each group of `host` create a machine in virtualbox     |      |
+| enable                              | boolean       | Enable or not the machine                               | Disabled machine aren't managed by Vagrant file, so if you want to destroy it you have to make this flag with `yes` |
+| vagrantbox_name                     | string        | Name for vagrant software                               |      |
+| hostname                            | string        | Hostname of the machine                                 |      |
+| box > name                          | string        | Name of the public vagrant box                          | Need to be publish in https://app.vagrantup.com/boxes/search |
+| box > version                       | version x.y.z | Vagrant box version                                     |      |      
+| box > check_update                  | boolean       | Check for update of your box                            |                                        |
+| private_ip                          | ipv4          | Internal ipv4 of the machine                            | Don't use same subnet of your computer |
+| ram                                 | int           | Amout of ram to allocate                                |       |
+| provision > ansible > enable        | boolean       | Enable Ansible provisioning                             |       |
+| provision > ansible > playbook_path | string        | Relative path from Vagrantfile of your Ansible Playbook |       |
+| provision > script > enable         | boolean       | Enable script provisioning                              |       |
+| provision > script > path           | string        | Relative path from Vagrantfile of your script           |       |
 
 ## Contribution
 Any contribution is highly appreciated. The best way to contribute code is to open a [pull request on GitHub](https://help.github.com/articles/using-pull-requests).<br />Please create your pull request against the `develop` branch

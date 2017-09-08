@@ -1,6 +1,7 @@
 # GMdotnet - Vagrant Multi Machine Virtualbox
 
-- [dev] nfs share
+## 1.1.0
+- [dev] add nfs share
 
 ## 1.0.0
 - [dev] stable version
