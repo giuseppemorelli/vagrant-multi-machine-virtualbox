@@ -1,4 +1,4 @@
-[![stable version](https://img.shields.io/badge/stable%20version-1.0.0-green.svg?style=flat-square)](https://github.com/gmdotnet/vagrant-multi-machine-virtualbox/releases/tag/1.0.0)
+[![stable version](https://img.shields.io/badge/stable%20version-1.1.0-green.svg?style=flat-square)](https://github.com/gmdotnet/vagrant-multi-machine-virtualbox/releases/tag/1.1.0)
 [![develop](https://img.shields.io/badge/beta%20version-branch%20develop-oran.svg?style=flat-square)](https://github.com/gmdotnet/vagrant-multi-machine-virtualbox/tree/develop)
 [![license](https://img.shields.io/badge/license-OSL--3-blue.svg?style=flat-square)](https://github.com/gmdotnet/vagrant-multi-machine-virtualbox/blob/master/LICENSE.txt)
 [![gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/GMdotnet/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
@@ -37,6 +37,20 @@ See `BOXES.md` for software installed list.
 - run `vagrant up` on folder where is `Vagrantfile`
 - (optional) make your configuration on vagrant machine entering by run `vagrant ssh`
 - have fun and happy coding!
+
+### Config file `config.yaml`
+
+| Field           | Type          | Description                                         | Note |
+| --------------- | ------------- | --------------------------------------------------- | ---- |
+| host            | group field   | Each group of `host` create a machine in virtualbox |      |
+| enable          | boolean       | Enable or not the machine                           | Disabled machine aren't managed by Vagrant file, so if you want to destroy it you have to make this flag with `yes` |
+| vagrantbox_name | string        | Name for vagrant software                           |      |
+| hostname        | string        | Hostname of the machine                             |      |
+| box > name      | string        | Name of the public vagrant box                      | Need to be publish in https://app.vagrantup.com/boxes/search |
+| box > version   | version x.y.z | Vagrant box version                                 |      |      
+| check_update    | boolean       | Check for update of your box                        |      |
+| private_ip      | ipv4          | Internal ipv4 of the machine                        | Don't use same subnet of your computer     |
+| ram             | int           | Amout of ram to allocate                            |      |
 
 ## Contribution
 Any contribution is highly appreciated. The best way to contribute code is to open a [pull request on GitHub](https://help.github.com/articles/using-pull-requests).<br />Please create your pull request against the `develop` branch
