@@ -74,10 +74,16 @@ Vagrant.configure("2") do |config|
                 if host['rsync'] != nil
                     host['rsync'].each do |rsync|
                       rsyncoptions = []
+                      rsyncexclude = []
                       rsync['folder']['options'].each do |options|
                           rsyncoptions.push(options)
                       end
-                      vmhost.vm.synced_folder rsync['folder']['host_folder'], rsync['folder']['vagrant_folder'], type: "rsync", rsync__args: rsyncoptions
+                      rsync['folder']['exclude'].each do |options|
+                          rsyncexclude.push(options)
+                      end
+                      vmhost.vm.synced_folder rsync['folder']['host_folder'], rsync['folder']['vagrant_folder'], type: "rsync",
+                          rsync__args: rsyncoptions,
+                          rsync__exclude: rsyncexclude
                     end
                 end
                 ## -*- end rsync folders -*-

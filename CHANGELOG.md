@@ -2,6 +2,7 @@
 
 ## 1.1.0
 - [dev] add nfs share
+- [dev] add options for rsync folders
 
 ## 1.0.0
 - [dev] stable version
