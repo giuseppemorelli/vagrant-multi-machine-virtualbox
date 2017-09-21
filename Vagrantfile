@@ -33,15 +33,15 @@ Vagrant.configure("2") do |config|
                 vmhost.vm.box_check_update = host['box']['check_update']
 
                 # Hostsupdater plugin
-                if host['plugin']['hostsupdater']['enable'] == true
+                if host['plugins']['hostsupdater']['enable'] == true
 
                     # Hostsupdater aliases
-                    if host['plugin']['hostsupdater']['aliases'] != nil
-                        vmhost.hostsupdater.aliases = host['plugin']['hostsupdater']['aliases']
+                    if host['plugins']['hostsupdater']['aliases'] != nil
+                        vmhost.hostsupdater.aliases = host['plugins']['hostsupdater']['aliases']
                     end
 
                     # Hostsupdater permanent role
-                    if host['plugin']['hostsupdater']['permanent'] == true
+                    if host['plugins']['hostsupdater']['permanent'] == true
                         vmhost.hostsupdater.remove_on_suspend = false
                     end
 
@@ -65,7 +65,11 @@ Vagrant.configure("2") do |config|
                         if share['folder']['group'] != nil
                             group = share['folder']['group']
                         end
-                        vmhost.vm.synced_folder share['folder']['host_folder'], share['folder']['vagrant_folder'], create: true, owner: owner, group: group
+                        vmhost.vm.synced_folder share['folder']['host_folder'],
+                            share['folder']['vagrant_folder'],
+                            create: true,
+                            owner: owner,
+                            group: group
                     end
                 end
                 ## -*- end shared folders -*-
@@ -78,8 +82,10 @@ Vagrant.configure("2") do |config|
                       rsync['folder']['options'].each do |options|
                           rsyncoptions.push(options)
                       end
-                      rsync['folder']['exclude'].each do |options|
-                          rsyncexclude.push(options)
+                      if rsync['folder']['exclude'] != nil
+                          rsync['folder']['exclude'].each do |options|
+                              rsyncexclude.push(options)
+                          end
                       end
                       vmhost.vm.synced_folder rsync['folder']['host_folder'], rsync['folder']['vagrant_folder'], type: "rsync",
                           rsync__args: rsyncoptions,
@@ -95,7 +101,10 @@ Vagrant.configure("2") do |config|
                       nfs['folder']['options'].each do |options|
                           nfsoptions.push(options)
                       end
-                      vmhost.vm.synced_folder nfs['folder']['host_folder'], nfs['folder']['vagrant_folder'], nfs: true, mount_options: nfsoptions
+                      vmhost.vm.synced_folder nfs['folder']['host_folder'],
+                            nfs['folder']['vagrant_folder'],
+                            nfs: true,
+                            mount_options: nfsoptions
                     end
                 end
                 ## -*- end nfs folders -*-

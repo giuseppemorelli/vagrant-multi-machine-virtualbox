@@ -8,133 +8,68 @@
 #######################################
 
 gmdotnet:
-  - host:
-      # enable or not the machine
-      # if you not enable the machine, it will not be created
-      enable: yes
-      vagrantbox_name: gmweb
-      hostname: gmweb
-      box:
-        name: giuseppemorelli/lamp-stack
-        version: 1.0.2  # leave empty if you want the latest version
-        check_update: yes
-      private_ip: 192.168.250.10
-      ram: 1024
-      provision:
-        ansible:
-          enable: no
-          playbook_path: "ansible/playbook.yml"
-        script:
-          enable: no
-          path: "script/backup_database.sh"
-      plugin:
-        hostsupdater:
-          enable: no    # enable hostsupdater plugin
-          permanent: no  # your changes to /etc/hosts will be permanent
-          aliases: ["alias.gmweb", "alias2.gmweb"]  # alias for same ip in your file hosts, leave blank for no aliases
-      # SHARED FOLDERS
-      share:
-      #    - folder:
-      #        host_folder: /var/www/myproject.com
-      #        vagrant_folder: /var/www/myproject.com
-      #        owner: vagrant
-      #        group: vagrant
-      #    - folder:
-      #        host_folder: /mnt/archive
-      #        vagrant_folder: /mnt/archive
-      #        owner: vagrant
-      #        group: vagrant
-      # RSYNC FOLDERS
-      rsync:
-#          - folder:
-#              host_folder: /mnt/extra/rsync
-#              vagrant_folder: /mnt/extra/rsync
-#              options:
-#                  - "-a"
-#                  - "-r"
-#                  - "-v"
-#                  - "-z"
-#                  - "--delete"
-#          - folder:
-#              host_folder: /mnt/extra/rsync2
-#              vagrant_folder: /mnt/extra/rsync2
-#              options:
-#                  - "-a"
-#                  - "-r"
-#                  - "-v"
-#                  - "-z"
-#              exclude:
-#                  - "myfolder"
-      # NFS FOLDERS
-      # nfs:
-      #     - folder:
-      #         # nfs path folder
-      #         host_folder: /var/www/myproject
-      #         vagrant_folder: /var/www/project_vagrant
-      #         options:
-      #             - ""
-  - host:
-      # enable or not the machine
-      # if you not enable the machine, it will not be created
-      enable: no
-      vagrantbox_name: gmdb
-      hostname: gmdb
-      box:
-        name: giuseppemorelli/lamp-stack
-        version: 1.0.2  # leave empty if you want the latest version
-        check_update: yes
-      private_ip: 192.168.250.11
-      ram: 1024
-      provision:
-        ansible:
-          enable: no
-          playbook_path: "ansible/playbook.yml"
-        script:
-          enable: no
-          path: "script/backup_database.sh"
-      plugin:
-        hostsupdater:
-          enable: no    # enable hostsupdater plugin
-          permanent: no  # your changes to /etc/hosts will be permanent
-          aliases: ["alias.gmweb", "alias2.gmweb"]  # alias for same ip in your file hosts, leave blank for no aliases
-      # SHARED FOLDERS
-      share:
-      #    - folder:
-      #        host_folder: /var/www/myproject.com
-      #        vagrant_folder: /var/www/myproject.com
-      #        owner: vagrant
-      #        group: vagrant
-      #    - folder:
-      #        host_folder: /mnt/archive
-      #        vagrant_folder: /mnt/archive
-      #        owner: vagrant
-      #        group: vagrant
-      # RSYNC FOLDERS
-      rsync:
-#          - folder:
-#              host_folder: /mnt/extra/rsync
-#              vagrant_folder: /mnt/extra/rsync
-#              options:
-#                  - "-a"
-#                  - "-r"
-#                  - "-v"
-#                  - "-z"
-#                  - "--delete"
-#          - folder:
-#              host_folder: /mnt/extra/rsync2
-#              vagrant_folder: /mnt/extra/rsync2
-#              options:
-#                  - "-a"
-#                  - "-r"
-#                  - "-v"
-#                  - "-z"
-#              exclude:
-#                  - "myfolder"
-      # NFS FOLDERS
-      # nfs:
-      #     - folder:
-      #         # nfs path folder
-      #         host_folder: /var/www/myproject
-      #         vagrant_folder: /var/www/project_vagrant
-      #         options:
-      #             - ""
+    - host:
+        # MACHINE
+        enable: yes
+        vagrantbox_name: gmweb
+        hostname: gmweb
+        box:
+            name: giuseppemorelli/lamp-stack
+            version: 1.0.2
+            check_update: yes
+        private_ip: 192.168.250.10
+        ram: 1024
+        # PROVISION
+        provision:
+            ansible:
+                enable: no
+                playbook_path: "ansible/playbook.yml"
+            script:
+                enable: no
+                path: "script/backup_database.sh"
+        # PLUGINS
+        plugins:
+            hostsupdater:
+                enable: no
+                permanent: no
+                aliases: ["alias.gmweb", "alias2.gmweb"]
+        # SHARED FOLDERS
+        share:
+#            - folder:
+#                host_folder: /home/user/project
+#                vagrant_folder: /var/www/project
+#                owner: vagrant
+#                group: vagrant
+#            - folder:
+#                host_folder: /mnt/archive
+#                vagrant_folder: /mnt/archive
+#                owner: vagrant
+#                group: vagrant
+        # RSYNC FOLDERS
+        rsync:
+#            - folder:
+#                host_folder: /mnt/mysync
+#                vagrant_folder: /mnt/rsyncfolder
+#                options:
+#                    - "-a"
+#                    - "-r"
+#                    - "-v"
+#                    - "-z"
+#                    - "--delete"
+#            - folder:
+#                host_folder: /mnt/extra/rsync2
+#                vagrant_folder: /mnt/extra/rsync2
+#                options:
+#                    - "-a"
+#                    - "-r"
+#                    - "-v"
+#                    - "-z"
+#                exclude:
+#                    - "myfolder"
+        # NFS FOLDERS
+        nfs:
+#            - folder:
+#                host_folder: /var/www/myproject
+#                vagrant_folder: /var/www/project_vagrant
+#                options:
+#                    - ""
