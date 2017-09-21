@@ -5,7 +5,7 @@
 ##                                   ##
 ## GMdotnet                          ##
 ## Vagrant Multi Machine Virtualbox  ##
-## Version 1.0.0                     ##
+## Version 1.1.0                     ##
 ##                                   ##
 #######################################
 
@@ -33,15 +33,15 @@ Vagrant.configure("2") do |config|
                 vmhost.vm.box_check_update = host['box']['check_update']
 
                 # Hostsupdater plugin
-                if host['plugin']['hostsupdater']['enable'] == true
+                if host['plugins']['hostsupdater']['enable'] == true
 
                     # Hostsupdater aliases
-                    if host['plugin']['hostsupdater']['aliases'] != nil
-                        vmhost.hostsupdater.aliases = host['plugin']['hostsupdater']['aliases']
+                    if host['plugins']['hostsupdater']['aliases'] != nil
+                        vmhost.hostsupdater.aliases = host['plugins']['hostsupdater']['aliases']
                     end
 
                     # Hostsupdater permanent role
-                    if host['plugin']['hostsupdater']['permanent'] == true
+                    if host['plugins']['hostsupdater']['permanent'] == true
                         vmhost.hostsupdater.remove_on_suspend = false
                     end
 
@@ -65,7 +65,11 @@ Vagrant.configure("2") do |config|
                         if share['folder']['group'] != nil
                             group = share['folder']['group']
                         end
-                        vmhost.vm.synced_folder share['folder']['host_folder'], share['folder']['vagrant_folder'], create: true, owner: owner, group: group
+                        vmhost.vm.synced_folder share['folder']['host_folder'],
+                            share['folder']['vagrant_folder'],
+                            create: true,
+                            owner: owner,
+                            group: group
                     end
                 end
                 ## -*- end shared folders -*-
@@ -74,13 +78,36 @@ Vagrant.configure("2") do |config|
                 if host['rsync'] != nil
                     host['rsync'].each do |rsync|
                       rsyncoptions = []
+                      rsyncexclude = []
                       rsync['folder']['options'].each do |options|
                           rsyncoptions.push(options)
                       end
-                      vmhost.vm.synced_folder rsync['folder']['host_folder'], rsync['folder']['vagrant_folder'], type: "rsync", rsync__args: rsyncoptions
+                      if rsync['folder']['exclude'] != nil
+                          rsync['folder']['exclude'].each do |options|
+                              rsyncexclude.push(options)
+                          end
+                      end
+                      vmhost.vm.synced_folder rsync['folder']['host_folder'], rsync['folder']['vagrant_folder'], type: "rsync",
+                          rsync__args: rsyncoptions,
+                          rsync__exclude: rsyncexclude
                     end
                 end
                 ## -*- end rsync folders -*-
+
+                # NFS folders
+                if host['nfs'] != nil
+                    host['nfs'].each do |nfs|
+                      nfsoptions = []
+                      nfs['folder']['options'].each do |options|
+                          nfsoptions.push(options)
+                      end
+                      vmhost.vm.synced_folder nfs['folder']['host_folder'],
+                            nfs['folder']['vagrant_folder'],
+                            nfs: true,
+                            mount_options: nfsoptions
+                    end
+                end
+                ## -*- end nfs folders -*-
 
                 # Virtualbox options
                 vmhost.vm.provider "virtualbox" do |vb|
