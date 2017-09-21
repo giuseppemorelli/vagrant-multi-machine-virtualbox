@@ -63,10 +63,10 @@ Tab indent: 4 spaces or tab
 | provision > script > enable                   | boolean       | Enable script provisioning                              |       |
 | provision > script > path                     | string        | Relative path from Vagrantfile of your script           |       |
 |                                     |               |                                                         |       |
-| **plugin**                          |               |                                                         |       |
-| plugin > hostsupdater > enable             | boolean       | Enable or not hostsupdater plugin                       | https://github.com/cogitatio/vagrant-hostsupdater |
-| plugin > hostsupdater > permanent          | boolean       | Your changes to /etc/hosts will be permanent            | Only if you destroy the machine, entries in /etc/hosts will be removed |
-| plugin > hostsupdater > aliases            | array         | domain aliases for the same ip                          | Leave blank for no aliases |
+| **plugins**                          |               |                                                         |       |
+| plugins > hostsupdater > enable             | boolean       | Enable or not hostsupdater plugin                       | https://github.com/cogitatio/vagrant-hostsupdater |
+| plugins > hostsupdater > permanent          | boolean       | Your changes to /etc/hosts will be permanent            | Only if you destroy the machine, entries in /etc/hosts will be removed |
+| plugins > hostsupdater > aliases            | array         | domain aliases for the same ip                          | Leave blank for no aliases |
 |                                     |               |                                                         |       |
 | **share**                           |               |                                                         |       |
 | share > folder                            | group field   | Group of shared folder via virtualbox system            | https://www.vagrantup.com/docs/synced-folders/basic_usage.html |
