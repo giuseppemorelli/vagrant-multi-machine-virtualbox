@@ -56,6 +56,8 @@ gmdotnet:
 #                    - "-v"
 #                    - "-z"
 #                    - "--delete"
+#               exclude:
+#                   - ""
 #            - folder:
 #                host_folder: /mnt/extra/rsync2
 #                vagrant_folder: /mnt/extra/rsync2
