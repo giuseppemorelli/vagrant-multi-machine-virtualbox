@@ -79,6 +79,15 @@ Vagrant.configure("2") do |config|
                     host['rsync'].each do |rsync|
                       rsyncoptions = []
                       rsyncexclude = []
+                      # rsync folders - owner
+                      owner = "vagrant"
+                      group = "vagrant"
+                      if rsync['folder']['owner'] != nil
+                          owner = rsync['folder']['owner']
+                      end
+                      if rsync['folder']['group'] != nil
+                          group = rsync['folder']['group']
+                      end
                       rsync['folder']['options'].each do |options|
                           rsyncoptions.push(options)
                       end
@@ -89,7 +98,9 @@ Vagrant.configure("2") do |config|
                       end
                       vmhost.vm.synced_folder rsync['folder']['host_folder'], rsync['folder']['vagrant_folder'], type: "rsync",
                           rsync__args: rsyncoptions,
-                          rsync__exclude: rsyncexclude
+                          rsync__exclude: rsyncexclude,
+                          owner: owner,
+                          group: group
                     end
                 end
                 ## -*- end rsync folders -*-
@@ -118,6 +129,12 @@ Vagrant.configure("2") do |config|
                 # Shell provision
                 if host['provision']['script']['enable'] == true
                     vmhost.vm.provision "shell", path: host['provision']['script']['path']
+                end
+
+                # Permanent Shell provision
+                if host['provision']['permanent_script']['enable'] == true
+                    vmhost.vm.provision "shell", path: host['provision']['permanent_script']['path'],
+                    run: 'always'
                 end
 
                 # Ansible provision

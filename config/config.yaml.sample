@@ -27,6 +27,9 @@ gmdotnet:
             script:
                 enable: no
                 path: "script/backup_database.sh"
+            permanent_script:
+                enable: no
+                path: "script/backup_database.sh"
         # PLUGINS
         plugins:
             hostsupdater:
@@ -50,6 +53,8 @@ gmdotnet:
 #            - folder:
 #                host_folder: /mnt/mysync
 #                vagrant_folder: /mnt/rsyncfolder
+#                owner: vagrant
+#                group: vagrant
 #                options:
 #                    - "-a"
 #                    - "-r"
@@ -61,6 +66,8 @@ gmdotnet:
 #            - folder:
 #                host_folder: /mnt/extra/rsync2
 #                vagrant_folder: /mnt/extra/rsync2
+#                owner: vagrant
+#                group: vagrant
 #                options:
 #                    - "-a"
 #                    - "-r"
