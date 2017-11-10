@@ -2,7 +2,7 @@
 ##                                   ##
 ## GMdotnet                          ##
 ## Vagrant Multi Machine Virtualbox  ##
-## Version 1.1.0                     ##
+## Version 1.2.0                     ##
 ##                                   ##
 ## Config file                       ##
 #######################################
@@ -19,6 +19,10 @@ gmdotnet:
             check_update: yes
         private_ip: 192.168.250.10
         ram: 1024
+        cpu: 1
+        extra_hard_disk:
+            filepath: .vagrant/extradisk.vdi
+            size: 30 # size in GB
         # PROVISION
         provision:
             ansible:

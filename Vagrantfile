@@ -5,7 +5,7 @@
 ##                                   ##
 ## GMdotnet                          ##
 ## Vagrant Multi Machine Virtualbox  ##
-## Version 1.1.0                     ##
+## Version 1.2.0                     ##
 ##                                   ##
 #######################################
 
@@ -124,6 +124,16 @@ Vagrant.configure("2") do |config|
                 vmhost.vm.provider "virtualbox" do |vb|
                     # RAM
                     vb.memory = host['ram']
+                    # CPUS
+                    vb.cpus = host['cpu']
+                    # Extra Hard disk
+                    if host['extra_hard_disk']['create'] == true
+                        unless File.exist?(host['extra_hard_disk']['filepath'])
+                            vb.customize ['createhd', '--filename', host['extra_hard_disk']['filepath'], '--variant', 'Fixed', '--size', host['extra_hard_disk']['size'] * 1024]
+                        end
+
+                        vb.customize ['storageattach', :id,  '--storagectl', 'SATA Controller', '--port', 1, '--device', 0, '--type', 'hdd', '--medium', host['extra_hard_disk']['filepath']]
+                    end
                 end
 
                 # Shell provision
