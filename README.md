@@ -1,4 +1,4 @@
-[![stable version](https://img.shields.io/badge/stable%20version-1.1.0-green.svg?style=flat-square)](https://github.com/gmdotnet/vagrant-multi-machine-virtualbox/releases/tag/1.1.0)
+[![stable version](https://img.shields.io/badge/stable%20version-1.2.0-green.svg?style=flat-square)](https://github.com/gmdotnet/vagrant-multi-machine-virtualbox/releases/tag/1.2.0)
 [![develop](https://img.shields.io/badge/beta%20version-branch%20develop-oran.svg?style=flat-square)](https://github.com/gmdotnet/vagrant-multi-machine-virtualbox/tree/develop)
 [![license](https://img.shields.io/badge/license-OSL--3-blue.svg?style=flat-square)](https://github.com/gmdotnet/vagrant-multi-machine-virtualbox/blob/master/LICENSE.txt)
 [![gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/GMdotnet/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
@@ -55,7 +55,12 @@ Tab indent: 4 spaces or tab
 | box > check_update                      | boolean       | Check for update of your box                            |       |
 |                                     |               |                                                         |       |
 | private_ip                          | ipv4          | Internal ipv4 of the machine                            | Don't use same subnet of your computer |
-| ram                                 | int           | Amout of ram to allocate                                |       |
+| ram                                 | int           | Amount of ram to allocate                                |       |
+| cpu                                 | int           | Amount of cpu to use                                |       |
+| **extra_hard_disk**                       |               |                                                         |       |
+| extra_hard_disk > create                  | boolean       | Flag to create new extra hard disk                             |       |
+| extra_hard_disk > filepath           | string        | Relative or absolute path for new extra hard disk |       |
+| extra_hard_disk > size           | int        | Size in GB |       |
 |                                     |               |                                                         |       |
 | **provision**                       |               |                                                         |       |
 | provision > ansible > enable                  | boolean       | Enable Ansible provisioning                             |       |
@@ -79,6 +84,8 @@ Tab indent: 4 spaces or tab
 | rsync > folder                            | group field   | Group of sync folder via rsync                          |       |
 | rsync > folder > host_folder              | string        | Path of the folder on your machine                      |       |
 | rsync > folder > vagrant_folder           | string        | Path of the folder inside vagrant machine               |       |
+| rsync > folder > owner                    | string        | Change owner folder inside vagrant machine              | Default: vagrant |
+| rsync > folder > group                    | string        | Change owner folder inside vagrant machine              | Default: vagrant |
 | rsync > folder > options                  | group field   | Rsync parameters. One per line                          | https://www.vagrantup.com/docs/synced-folders/rsync.html |
 | rsync > folder > exclude                  | group field   | Exclude folders from rsync                              | https://www.vagrantup.com/docs/synced-folders/rsync.html#rsync__exclude |
 |                                     |               |                                                         |       |

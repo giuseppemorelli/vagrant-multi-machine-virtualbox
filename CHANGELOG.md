@@ -1,12 +1,28 @@
 # GMdotnet - Vagrant Multi Machine Virtualbox
 
-## 1.1.0
-- [dev] add nfs share
-- [dev] add options for rsync folders
-- [imp] readme and instruction to use
+Follow guideline of [Keep a Changelog](http://keepachangelog.com) from 1.11.5
 
-## 1.0.0
-- [dev] stable version
+## [unreleased]
 
-## 0.0.1
-- [dev] init from gmdotnet/vagrant-lamp project
+### Added
+- rsync folder: add possibility to choose user and group owner
+- possibility to add extra hard disk
+
+### Changed
+- edit readme
+- fix sample file
+
+## [1.1.0]
+
+### Added
+- add nfs share
+- add options for rsync folders
+
+### Changed
+- readme and instruction to use
+
+## [1.0.0]
+stable version
+
+## [0.0.1]
+init from gmdotnet/vagrant-lamp project
