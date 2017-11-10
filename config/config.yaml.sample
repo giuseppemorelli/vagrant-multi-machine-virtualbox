@@ -21,6 +21,7 @@ gmdotnet:
         ram: 1024
         cpu: 1
         extra_hard_disk:
+            create: yes
             filepath: .vagrant/extradisk.vdi
             size: 30 # size in GB
         # PROVISION
