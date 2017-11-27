@@ -2,11 +2,12 @@
 
 Follow guideline of [Keep a Changelog](http://keepachangelog.com) from 1.11.5
 
-## [unreleased]
+## [1.2.0]
 
 ### Added
 - rsync folder: add possibility to choose user and group owner
 - possibility to add extra hard disk
+- add permament script path
 
 ### Changed
 - edit readme
