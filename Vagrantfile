@@ -5,7 +5,7 @@
 ##                                   ##
 ## GMdotnet                          ##
 ## Vagrant Multi Machine Virtualbox  ##
-## Version 1.1.0                     ##
+## Version 1.2.0                     ##
 ##                                   ##
 #######################################
 
@@ -79,6 +79,15 @@ Vagrant.configure("2") do |config|
                     host['rsync'].each do |rsync|
                       rsyncoptions = []
                       rsyncexclude = []
+                      # rsync folders - owner
+                      owner = "vagrant"
+                      group = "vagrant"
+                      if rsync['folder']['owner'] != nil
+                          owner = rsync['folder']['owner']
+                      end
+                      if rsync['folder']['group'] != nil
+                          group = rsync['folder']['group']
+                      end
                       rsync['folder']['options'].each do |options|
                           rsyncoptions.push(options)
                       end
@@ -89,7 +98,9 @@ Vagrant.configure("2") do |config|
                       end
                       vmhost.vm.synced_folder rsync['folder']['host_folder'], rsync['folder']['vagrant_folder'], type: "rsync",
                           rsync__args: rsyncoptions,
-                          rsync__exclude: rsyncexclude
+                          rsync__exclude: rsyncexclude,
+                          owner: owner,
+                          group: group
                     end
                 end
                 ## -*- end rsync folders -*-
@@ -113,11 +124,27 @@ Vagrant.configure("2") do |config|
                 vmhost.vm.provider "virtualbox" do |vb|
                     # RAM
                     vb.memory = host['ram']
+                    # CPUS
+                    vb.cpus = host['cpu']
+                    # Extra Hard disk
+                    if host['extra_hard_disk']['create'] == true
+                        unless File.exist?(host['extra_hard_disk']['filepath'])
+                            vb.customize ['createhd', '--filename', host['extra_hard_disk']['filepath'], '--variant', 'Fixed', '--size', host['extra_hard_disk']['size'] * 1024]
+                        end
+
+                        vb.customize ['storageattach', :id,  '--storagectl', 'SATA Controller', '--port', 1, '--device', 0, '--type', 'hdd', '--medium', host['extra_hard_disk']['filepath']]
+                    end
                 end
 
                 # Shell provision
                 if host['provision']['script']['enable'] == true
                     vmhost.vm.provision "shell", path: host['provision']['script']['path']
+                end
+
+                # Permanent Shell provision
+                if host['provision']['permanent_script']['enable'] == true
+                    vmhost.vm.provision "shell", path: host['provision']['permanent_script']['path'],
+                    run: 'always'
                 end
 
                 # Ansible provision

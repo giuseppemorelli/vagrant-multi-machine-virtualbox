@@ -2,7 +2,7 @@
 ##                                   ##
 ## GMdotnet                          ##
 ## Vagrant Multi Machine Virtualbox  ##
-## Version 1.1.0                     ##
+## Version 1.2.0                     ##
 ##                                   ##
 ## Config file                       ##
 #######################################
@@ -19,12 +19,20 @@ gmdotnet:
             check_update: yes
         private_ip: 192.168.250.10
         ram: 1024
+        cpu: 1
+        extra_hard_disk:
+            create: yes
+            filepath: .vagrant/extradisk.vdi
+            size: 30 # size in GB
         # PROVISION
         provision:
             ansible:
                 enable: no
                 playbook_path: "ansible/playbook.yml"
             script:
+                enable: no
+                path: "script/backup_database.sh"
+            permanent_script:
                 enable: no
                 path: "script/backup_database.sh"
         # PLUGINS
@@ -50,15 +58,21 @@ gmdotnet:
 #            - folder:
 #                host_folder: /mnt/mysync
 #                vagrant_folder: /mnt/rsyncfolder
+#                owner: vagrant
+#                group: vagrant
 #                options:
 #                    - "-a"
 #                    - "-r"
 #                    - "-v"
 #                    - "-z"
 #                    - "--delete"
+#               exclude:
+#                   - ""
 #            - folder:
 #                host_folder: /mnt/extra/rsync2
 #                vagrant_folder: /mnt/extra/rsync2
+#                owner: vagrant
+#                group: vagrant
 #                options:
 #                    - "-a"
 #                    - "-r"
