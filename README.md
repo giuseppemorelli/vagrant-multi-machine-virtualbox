@@ -1,4 +1,4 @@
-[![stable version](https://img.shields.io/badge/stable%20version-1.2.1-green.svg?style=flat-square)](https://github.com/gmdotnet/vagrant-multi-machine-virtualbox/releases/tag/1.2.0)
+[![stable version](https://img.shields.io/badge/stable%20version-1.2.1-green.svg?style=flat-square)](https://github.com/gmdotnet/vagrant-multi-machine-virtualbox/releases/tag/1.2.1)
 [![develop](https://img.shields.io/badge/beta%20version-branch%20develop-oran.svg?style=flat-square)](https://github.com/gmdotnet/vagrant-multi-machine-virtualbox/tree/develop)
 [![license](https://img.shields.io/badge/license-OSL--3-blue.svg?style=flat-square)](https://github.com/gmdotnet/vagrant-multi-machine-virtualbox/blob/master/LICENSE.txt)
 
