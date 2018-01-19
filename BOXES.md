@@ -145,7 +145,9 @@
 
 -----
 
-## 1.0.1
+## 1.0.1 - deprecated
+
+(not available anymore)
 
 **OS**: debian/jessie 8.5.1  64bit
  
