@@ -2,7 +2,7 @@
 
 ### MySQL server
 - created an user called `local` (password `local`) with root privilegies
-- root password is `vagrant`
+- root password is `vagrant` (in box version >= 1.1.0 user `root` can only login through unix socket)
 
 ### Apache server
 - ServerName is `vagrant`
@@ -37,6 +37,59 @@
 ## VERSIONS 
 
 ### Box code: `giuseppemorelli/lamp-stack`
+
+## 1.1.0
+
+**OS**: debian/stretch 9.3.0  64bit
+
+- apache2  2.4.25
+- [composer](https://getcomposer.org/)  1.6.2
+- curl  7.52.1
+- git  2.11.0
+- [git up](https://github.com/msiemens/PyGitUp) (plugin for git - python version)   1.4.6
+- htop
+- iotop
+- jpegoptim 1.4.4
+- mailutils
+- [mailhog](https://github.com/mailhog/MailHog)  1.0.0
+- mc (midnight commander)
+- mariadb  10.1.26
+- mysqltuner 1.6.18
+- optipng 0.7.6
+- phpmyadmin 4.7.7 - all languages
+- pip (python package manager)
+- redis server
+- tig
+
+- Magento Utils:
+  - [modman](https://github.com/colinmollenhour/modman) 1.12
+  - [n98-magerun](https://github.com/netz98/n98-magerun)  1.100.0
+  - [n98-magerun2](https://github.com/netz98/n98-magerun2) 2.0.0  
+
+- PHP
+  - php7.0   7.0.27
+  - php7.0-cli
+  - php7.0-dev
+  - php7.0-gd
+  - php7.0-intl
+  - php7.0-mcrypt
+  - php7.0-mysql
+  - php7.0-mbstring
+  - php7.0-xml
+  - php7.0-xsl
+  - php7.0-zip
+  - php7.0-json
+  - php7.0-xdebug
+  - php7.0-soap
+  - php-pear
+  
+- [Node.js](https://nodejs.org/en/) 6.9.1 LTS
+  - [bower](https://bower.io/)  1.8.0
+  - [grunt](http://gruntjs.com/)  1.0.1
+  - [grunt-cli](http://gruntjs.com/)  1.2.0
+  - [gulp-cli](http://gulpjs.com/)  1.2.2    
+
+---
 
 ## 1.0.3
 
