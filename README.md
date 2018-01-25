@@ -34,6 +34,7 @@ See `BOXES.md` for software installed list.
 - extract on your favorite work folder
 - rename `config/config.yaml.sample` in `config/config.yaml`
 - change settings in `config/config.yaml`
+- install git submodule with `git submodule init && git submodule update`
 - run `vagrant up` on folder where is `Vagrantfile`
 - (optional) make your configuration on vagrant machine entering by run `vagrant ssh`
 - have fun and happy coding!
