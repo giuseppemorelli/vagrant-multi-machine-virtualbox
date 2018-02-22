@@ -2,6 +2,11 @@
 
 Follow guideline of [Keep a Changelog](http://keepachangelog.com) from 1.11.5
 
+## [1.2.2]
+
+### Added
+- add git submodules
+
 ## [1.2.1]
 
 ### Changed

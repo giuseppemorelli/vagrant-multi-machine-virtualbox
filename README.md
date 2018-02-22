@@ -1,4 +1,4 @@
-[![stable version](https://img.shields.io/badge/stable%20version-1.2.1-green.svg?style=flat-square)](https://github.com/gmdotnet/vagrant-multi-machine-virtualbox/releases/tag/1.2.1)
+[![stable version](https://img.shields.io/badge/stable%20version-1.2.2-green.svg?style=flat-square)](https://github.com/gmdotnet/vagrant-multi-machine-virtualbox/releases/tag/1.2.2)
 [![develop](https://img.shields.io/badge/beta%20version-branch%20develop-oran.svg?style=flat-square)](https://github.com/gmdotnet/vagrant-multi-machine-virtualbox/tree/develop)
 [![license](https://img.shields.io/badge/license-OSL--3-blue.svg?style=flat-square)](https://github.com/gmdotnet/vagrant-multi-machine-virtualbox/blob/master/LICENSE.txt)
 
@@ -24,10 +24,10 @@ This is a Multi Machine system for vagrant with Virtualbox provider.
 ## Vagrant boxes created
 See `BOXES.md` for software installed list.
 
-- giuseppemorelli/lamp-stack 1.0.1 (debian jessie 8.6) (deprecated)
-- giuseppemorelli/lamp-stack 1.0.2 (debian jessie 8.6)
-- giuseppemorelli/lamp-stack 1.0.3 (debian jessie 8.6)
 - giuseppemorelli/lamp-stack 1.1.0 (debian stretch 9.3)
+- giuseppemorelli/lamp-stack 1.0.3 (debian jessie 8.6)
+- giuseppemorelli/lamp-stack 1.0.2 (debian jessie 8.6)
+- giuseppemorelli/lamp-stack 1.0.1 (debian jessie 8.6) (deprecated)
 
 ## How to use
 - download latest version [https://github.com/gmdotnet/vagrant-multi-machine-virtualbox/releases](https://github.com/gmdotnet/vagrant-multi-machine-virtualbox/releases)
@@ -104,4 +104,4 @@ Tab indent: 4 spaces or tab
 Any contribution is highly appreciated. The best way to contribute code is to open a [pull request on GitHub](https://help.github.com/articles/using-pull-requests).<br />Please create your pull request against the `develop` branch
 
 ### Credits
-Giuseppe Morelli - [giuseppemorelli.net](https://giuseppemorelli.net)
+Giuseppe Morelli - [giuseppemorelli.net](https://www.giuseppemorelli.net)
