@@ -1,6 +1,12 @@
 # GMdotnet - Vagrant Multi Machine Virtualbox
 
-Follow guideline of [Keep a Changelog](http://keepachangelog.com) from 1.11.5
+Follow guideline of [Keep a Changelog](http://keepachangelog.com)
+Follow guideline of [Semantic Versioning](https://semver.org/)
+
+## [1.2.3]
+
+### Removed
+- remove git submodule, problem with implement it in project repository
 
 ## [1.2.2]
 

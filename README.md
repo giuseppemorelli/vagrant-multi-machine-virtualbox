@@ -1,4 +1,4 @@
-[![stable version](https://img.shields.io/badge/stable%20version-1.2.2-green.svg?style=flat-square)](https://github.com/gmdotnet/vagrant-multi-machine-virtualbox/releases/tag/1.2.2)
+[![stable version](https://img.shields.io/badge/stable%20version-1.2.3-green.svg?style=flat-square)](https://github.com/gmdotnet/vagrant-multi-machine-virtualbox/releases/tag/1.2.3)
 [![develop](https://img.shields.io/badge/beta%20version-branch%20develop-oran.svg?style=flat-square)](https://github.com/gmdotnet/vagrant-multi-machine-virtualbox/tree/develop)
 [![license](https://img.shields.io/badge/license-OSL--3-blue.svg?style=flat-square)](https://github.com/gmdotnet/vagrant-multi-machine-virtualbox/blob/master/LICENSE.txt)
 
@@ -102,6 +102,3 @@ Tab indent: 4 spaces or tab
 
 ## Contribution
 Any contribution is highly appreciated. The best way to contribute code is to open a [pull request on GitHub](https://help.github.com/articles/using-pull-requests).<br />Please create your pull request against the `develop` branch
-
-### Credits
-Giuseppe Morelli - [giuseppemorelli.net](https://www.giuseppemorelli.net)
